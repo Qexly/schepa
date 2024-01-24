@@ -36,6 +36,7 @@
 .phoneImg {
     animation: transform 2s infinite ease-in-out;
     margin: 3px;
+    width: 100%;
 }
 
 .logoTitle {
@@ -112,7 +113,7 @@
     } 
 
     .phoneImgContainer {
-        width: 35px;
+        width: 40px;
     }
 }
 

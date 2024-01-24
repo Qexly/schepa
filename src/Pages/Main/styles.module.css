@@ -117,29 +117,30 @@
     }
 }
 
-/*включение адаптива для .Advantages*/
-:global(.is-adaptive) .Advantages {
-    margin-left: 0;
-}
+/*включение адаптива*/
+:global(.is-adaptive) {
+    .Advantages {
+        margin-left: 0;
+    }
 
-/*включение адаптива для .SchepaTitle*/
-:global(.is-adaptive) .SchepaTitle {
-    font-size: var(--font-size_4xl);
-}
+    .SchepaTitle {
+        font-size: var(--font-size_4xl);
+    }
 
-/*включение адаптива для .SchepaSubTitle*/
-:global(.is-adaptive) .SchepaSubTitle {
-    font-size: var(--font-size_xl);
-}
+    .SchepaSubTitle {
+        font-size: var(--font-size_xl);
+    }
 
-/*включение адаптива для .CardsSectionTitle*/
-:global(.is-adaptive) .CardsSectionTitle {
-    font-size: var(--font-size_xl);
-}
+    .CardsSectionTitle {
+        font-size: var(--font-size_xl);
+    }
 
-/*включение адаптива для .Cards*/
-:global(.is-adaptive) .Cards {
-    font-size: var(--font-size_xl);
-    margin-top: 0px;
-}
+    .Cards {
+        font-size: var(--font-size_xl);
+        margin-top: 0px;
+    }
 
+    .Schepa {
+        background-attachment: inherit;
+    }
+}
