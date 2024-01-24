@@ -34,8 +34,7 @@
 }
 
 .phoneImg {
-    animation: transform 2s infinite ease-in-out;
-    margin: 3px;
+    /*animation: transform 2s infinite ease-in-out;*/
     width: 100%;
 }
 
@@ -63,7 +62,7 @@
     aspect-ratio: 1/1;
     background-color: var(--transculent-bg);
     border-radius: 50px;
-    padding: 5px;
+    padding: 8px;
     margin-right: 8px;
 }
 
