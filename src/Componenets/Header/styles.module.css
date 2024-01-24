@@ -34,7 +34,7 @@
 }
 
 .phoneImg {
-    /*animation: transform 2s infinite ease-in-out;*/
+    animation: transform 2s infinite ease-in-out;
     width: 100%;
 }
 
