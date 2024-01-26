@@ -40,6 +40,8 @@ body {
   --brand-color: #f9ebd0;
   --dark-brand-color: #e6cd9d;
   --transculent-bg: rgba(0, 0, 0, 0.275);
+  --transculent-bg-white: rgba(255, 255, 255, 0.275);
+
 
   /* Размеры шрифта */
   --font-size_4xs: 12px;

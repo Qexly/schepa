@@ -1,3 +1,5 @@
+import { count } from "console";
+
 interface IAdvantage {
     getImg: Function;
     text: string;
@@ -6,6 +8,7 @@ interface IAdvantage {
 interface ICard {
     fraction: string;
     displacement: string;
+    price: {count: string, value: string}[],
     getImg: Function; 
 }
 
@@ -54,17 +57,47 @@ const ADVANTAGES: IAdvantage[] = [
 const CARDS: ICard[] = [
     {
         fraction: '3-5 мм', 
-        displacement: '90 л',
+        displacement: '95 л, 18кг',
+        price: [
+            {
+                count: 'От 5 мешков',
+                value: '890₽'
+            },
+            {
+                count: '1 мешок',
+                value: '1090₽'
+            }
+        ],
         getImg: () => require('Assets/imgs/cads/3-5.jpg')
     },
     {
         fraction: '5-7 мм',
-        displacement: '90 л',
+        displacement: '95 л, 18кг',
+        price: [
+            {
+                count: 'От 5 мешков',
+                value: '890₽'
+            },
+            {
+                count: '1 мешок',
+                value: '1090₽'
+            }
+        ],
         getImg: () => require('Assets/imgs/cads/5-7.jpg')
     },
     {
         fraction: '8-12 мм',
-        displacement: '90 л',
+        displacement: '95 л, 18кг',
+        price: [
+            {
+                count: 'От 5 мешков',
+                value: '890₽'
+            },
+            {
+                count: '1 мешок',
+                value: '1090₽'
+            }
+        ],
         getImg: () => require('Assets/imgs/cads/8-12.jpg')
     }
 ];
