@@ -23,10 +23,16 @@ const MobilePanel = ({opened, onClose, items}: IProps): ReactElement => {
                 }
                 <div className={classNames(Styles.Contacts)}>
                     <div className={Styles.Contact}>
-                        <img src={phoneImg} className={Styles.ContantImg} /> {PHONE}
+                        <img src={phoneImg} className={Styles.ContantImg} />
+                        <a href={`tel:${PHONE.tel}`}>
+                            <span>{PHONE.view}</span>
+                        </a>
                     </div>
                     <div className={Styles.Contact}>
-                        <img src={mailImg} className={Styles.ContantImg} /> {MAIL}
+                        <img src={mailImg} className={Styles.ContantImg} />
+                        <a href={`mailto:${MAIL}`}>
+                            <span>{MAIL}</span>
+                        </a>
                     </div>
                 </div>
                 <img src={Close}

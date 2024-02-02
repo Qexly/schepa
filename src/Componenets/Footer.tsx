@@ -9,8 +9,12 @@ const Footer = (): ReactElement => {
     return (
         <div className={Styles.Container}>
             <div className={Styles.Contacts}>
-                <span>{PHONE}</span>
-                <span>{MAIL}</span>
+                <a href={`tel:${PHONE.tel}`}>
+                    <span>{PHONE.view}</span>
+                </a>
+                <a href={`mailto:${MAIL}`}>
+                    <span>{MAIL}</span>
+                </a>
             </div>
             <div className={Styles.Sample}>
                 Вышлем образцы  щепы в любой регион

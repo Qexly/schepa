@@ -26,7 +26,10 @@ interface IPhotos {
     getImg: Function
 }
 
-const PHONE = '+7 (921) 069-43-44';
+const PHONE = {
+    view: '+7 (921) 069-43-44',
+    tel: '+79210694344'
+};
 const MAIL = 'vozr35@mail.ru';
 
 const FULL_HEIGHT_CLASS = 'fullHeight';

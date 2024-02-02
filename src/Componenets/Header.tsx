@@ -36,9 +36,11 @@ const Header = (): ReactElement => {
 
                 </div>
                 {
-                    !adaptiveMode && <span className={Styles.ContactsPhone}>
-                        {PHONE}
-                    </span>
+                    !adaptiveMode && <a href={`tel:${PHONE.tel}`}>
+                        <span className={Styles.ContactsPhone}>
+                            {PHONE.view}
+                        </span>
+                    </a>
                 }
             </div>
         </header>
