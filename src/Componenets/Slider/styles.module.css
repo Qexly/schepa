@@ -27,10 +27,16 @@
     transform: rotate(180deg);
 }
 
-:global(.is-adaptive) .Arrow {
-    width: 25px;
-}
+:global(.is-adaptive) {
+    .Arrow {
+        width: 25px;
+    }
 
-:global(.is-adaptive) .PhotoContainer {
-    margin: 0 6px;
+    .PhotoContainer {
+        margin: 0 6px;
+    }
+
+    .PhotoContainer { 
+        border-radius: 18px;
+    }
 }
