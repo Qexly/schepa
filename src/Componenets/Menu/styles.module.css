@@ -12,3 +12,9 @@
 .Burger {
     width: 30px;
 }
+
+@media (max-width: 850px) {
+    .Item {
+        font-size: var(--font-size_s);
+    }
+}

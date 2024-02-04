@@ -8,3 +8,8 @@
 .Slider {
     margin: 12px auto;
 }
+
+.PhotoContainerClass {
+    aspect-ratio: 0.75;
+    max-width: 550px;
+}

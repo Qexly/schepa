@@ -147,6 +147,28 @@ const NAV_ITEMS: INavItem[] = [
     {
         title: 'Фото',
         href: '/photos'
+    },
+    {
+        title: 'Отзывы',
+        href: '/feedback'
+    }
+];
+
+const FEEDBACK: IPhotos[] = [
+    {
+        getImg: () => require('Assets/imgs/feedback/1.png')
+    },
+    {
+        getImg: () => require('Assets/imgs/feedback/2.png')
+    },
+    {
+        getImg: () => require('Assets/imgs/feedback/3.png')
+    },
+    {
+        getImg: () => require('Assets/imgs/feedback/4.png')
+    },
+    {
+        getImg: () => require('Assets/imgs/feedback/5.png')
     }
 ];
 
@@ -159,6 +181,7 @@ export {
     ABOUT_ITEMS,
     NAV_ITEMS,
     PHOTOS,
+    FEEDBACK,
     type IAdvantage,
     type ICard,
     type IAboutItem,

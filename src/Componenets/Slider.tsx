@@ -8,12 +8,13 @@ import {
     useMemo
 } from 'react';
 import Styles from './Slider/styles.module.css'
-import {PHOTOS} from 'CONSTANTS';
 import Arrow from 'Assets/imgs/photos/arrow.png';
 import classNames from 'classnames';
 
 interface IProps {
     className?: string;
+    items: any[];
+    photoContainerClass?: string
 }
 
 enum DIRECTIONS {
@@ -21,9 +22,9 @@ enum DIRECTIONS {
     right
 }
 
-export const Slider = ({className}: IProps): ReactElement => {
+export const Slider = ({className, items, photoContainerClass}: IProps): ReactElement => {
     const photoContainer = useRef<any>();
-    const imgCount = PHOTOS.length;
+    const imgCount = items.length;
     const [currentImg, setCurrentImg] = useState(0);
 
     useEffect(() => {
@@ -68,10 +69,10 @@ export const Slider = ({className}: IProps): ReactElement => {
             <img src={Arrow}
                 className={classNames(Styles.Arrow)} 
                 onClick={e => onArrowClick(DIRECTIONS.left, e)} />
-            <div className={Styles.PhotoContainer}
+            <div className={classNames(Styles.PhotoContainer, photoContainerClass)}
                 ref={photoContainer}>
                 {
-                    PHOTOS.map((photo, i) => (
+                    items.map((photo, i) => (
                         <img key={i} className={Styles.Img} src={photo.getImg()} />
                     ))
                 }

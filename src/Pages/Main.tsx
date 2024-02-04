@@ -13,11 +13,11 @@ const Main = (): ReactElement => {
             <>
                 <section className={Styles.Schepa} style={{backgroundImage: `url(${schepaBg})`}}>
                     <h1 className={Styles.SchepaTitle}>
-                        Производство и реализация <br></br>
+                        Производство и реализация <br/>
                         щепы для копчения
                     </h1>
                     <h2 className={Styles.SchepaSubTitle}>
-                        Щепа ольхи с отправкой <br></br> 
+                        Щепа ольхи с отправкой <br/> 
                         транспортной компанией по всей России
                     </h2>
                     <div className={Styles.Advantages}>
@@ -59,8 +59,6 @@ const Main = (): ReactElement => {
         </PageLayout>
     )
 };
-
-export default Main;
 
 export {
     Main as Component

@@ -11,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: "photos",
     lazy: () => import("Pages/Photos")
+  },
+  {
+    path: "feedback",
+    lazy: () => import("Pages/Feedback")
   }
 ]);
 
