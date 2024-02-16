@@ -12,4 +12,5 @@
 .PhotoContainerClass {
     aspect-ratio: 0.75;
     max-width: 550px;
+    background-color: white;
 }
