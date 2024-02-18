@@ -22,11 +22,6 @@ const Header = (): ReactElement => {
                 onClick={() => navigate('/')}>
                 <img src={logo}
                     className={Styles.logoImg} />
-                {
-                    !adaptiveMode && <span className={Styles.logoTitle}>
-                        Щепа высшего сорта
-                    </span>
-                }
             </div>
             <div className={classNames(Styles.headerSection, Styles.ContactsSection)}>
                 <div className={Styles.phoneImgContainer}

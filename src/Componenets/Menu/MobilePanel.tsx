@@ -1,4 +1,4 @@
-import {ReactElement} from 'react';
+import {ReactElement, useCallback, MouseEvent} from 'react';
 import Styles from './MobilePanel/styles.module.css';
 import classNames from 'classnames';
 import Close from 'Assets/imgs/menu/close.png';
@@ -15,8 +15,11 @@ interface IProps {
 }
 
 const MobilePanel = ({opened, onClose, items}: IProps): ReactElement => {
+    const onLayoutClick = useCallback((e: MouseEvent<HTMLDivElement>) => e.target === e.currentTarget && onClose(), [onClose]);
+
     return (
-        <div className={classNames({[Styles.Layout]: opened})}>
+        <div className={classNames({[Styles.Layout]: opened})}
+        onClick={(e) => onLayoutClick(e)}>
             <div className={classNames(Styles.Container, {[Styles.Opened]: opened})}>
                 {
                     items.map((item) => <Item key={item.title} item={item} className={Styles.Item} />)

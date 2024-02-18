@@ -5,8 +5,9 @@ import {
     useEffect,
     useCallback,
     MouseEvent,
-    useMemo
+    TouchEvent
 } from 'react';
+import {useEnv} from 'Componenets/EnviromentProvider';
 import Styles from './Slider/styles.module.css'
 import Arrow from 'Assets/imgs/photos/arrow.png';
 import classNames from 'classnames';
@@ -26,6 +27,7 @@ export const Slider = ({className, items, photoContainerClass}: IProps): ReactEl
     const photoContainer = useRef<any>();
     const imgCount = items.length;
     const [currentImg, setCurrentImg] = useState(0);
+    const {isTouch} = useEnv();
 
     useEffect(() => {
         const setScroll = () => {
@@ -64,12 +66,43 @@ export const Slider = ({className, items, photoContainerClass}: IProps): ReactEl
         }
     }, [currentImg]);
 
+    const onTouchEnd = useCallback((e: TouchEvent) => {
+        if (!isTouch) {
+            return;
+        }
+
+        setTimeout(() => {
+            const containerWidth = photoContainer.current?.getBoundingClientRect().width || 0;
+            const scrollLeft = photoContainer.current.scrollLeft;
+
+            // получим индекс картинки, которая уходит за левый край
+            const currentImg = Math.floor(
+                scrollLeft / containerWidth
+            );
+
+            // если currentImg проскроленна дальше середины (middle), то нужно ее проскролить до конца
+            const middle = containerWidth * currentImg + (containerWidth / 2);
+
+            // индекс картинки, которую нужно отображать
+            const index = scrollLeft > middle ? currentImg + 1 : currentImg
+
+            if (photoContainer.current instanceof HTMLDivElement) {
+                photoContainer.current.scrollLeft = containerWidth * index;
+                // только этой строки недостаточно, т.к. слайдер не вызывает изменения состояния
+                // состояние менять не требуется, если индекс не сменился, но выровнять изображение надо
+                setCurrentImg(index)
+            }
+        }, 500);
+    }, []);
+
     return (
         <div className={classNames(Styles.Container, className)}>
             <img src={Arrow}
-                className={classNames(Styles.Arrow)} 
+                className={classNames(Styles.Arrow)}
                 onClick={e => onArrowClick(DIRECTIONS.left, e)} />
-            <div className={classNames(Styles.PhotoContainer, photoContainerClass)}
+            
+            <div className={classNames(Styles.PhotoContainer, photoContainerClass, { [Styles.Scroll]: isTouch })}
+                onTouchEnd={(e: TouchEvent<HTMLDivElement>) => onTouchEnd(e)}
                 ref={photoContainer}>
                 {
                     items.map((photo, i) => (
@@ -77,9 +110,10 @@ export const Slider = ({className, items, photoContainerClass}: IProps): ReactEl
                     ))
                 }
             </div>
+
             <img src={Arrow}
-                className={classNames(Styles.Arrow, Styles.ArrowRight)} 
-                onClick={e => onArrowClick(DIRECTIONS.right, e)}/>
+                className={classNames(Styles.Arrow, Styles.ArrowRight)}
+                onClick={e => onArrowClick(DIRECTIONS.right, e)} />
         </div>
     )
 };
